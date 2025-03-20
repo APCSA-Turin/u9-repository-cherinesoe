@@ -1,4 +1,4 @@
-import U9T3.Car;
+package U9T3;
 
 public class Taxi extends Car { 
     private double fareCollected;
@@ -10,12 +10,9 @@ public class Taxi extends Car {
 
     public double getFareCollected() {return fareCollected;}
 
-    public void printTaxi() {
-        System.out.println("License plate: " + getLicensePlate());
-        System.out.println("Toll fee: " + getTollFee());
-        System.out.println("Passengers: " + getPassengers());
-        System.out.println("Electric?: " + isElectric());
-        System.out.println("Discount applied?: " + isDiscountApplied());
+    @Override
+    public void printInfo() {
+        super.printInfo();
         System.out.println("Fare collected: " + fareCollected);
     }
 
@@ -26,5 +23,15 @@ public class Taxi extends Car {
             setTollFee(getTollFee() * .5);
             setDiscountApplied(true);
         }
+    }
+
+    public boolean chargeAndDropOffRiders(double farePerRider) {
+        fareCollected += farePerRider * (getPassengers() - 1);
+        return dropOffPassengers(getPassengers() - 1);
+    }
+
+    @Override
+    public void hasTaxiLicense() {
+        System.out.println("This vehicle has a taxi license.");
     }
 }

@@ -20,4 +20,9 @@ public class Computer {
     public void installOperatingSystem() {
         System.out.println("installing OS...");
     }
+
+    public void printInfo() {
+        System.out.println("screen size: " + screenSize);
+        System.out.println("memory: " + memory);
+    }
 }
