@@ -1,4 +1,4 @@
-package U9T3;
+package U9T2;
 
 public class Truck extends Vehicle {
     private int axles;
